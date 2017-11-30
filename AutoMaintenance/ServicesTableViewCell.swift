@@ -14,6 +14,8 @@ class ServicesTableViewCell: UITableViewCell {
     @IBOutlet var dateValue: UILabel!
     @IBOutlet var serviceValue: UILabel!
     @IBOutlet var costValue: UILabel!
+    @IBOutlet var serviceIDValue: UILabel!
+    @IBOutlet var statusValue: UILabel!
     
     
     override func awakeFromNib() {

@@ -13,10 +13,12 @@ class AddEntryViewController: UIViewController, UITableViewDataSource, UITableVi
 
     var myUsername: String = ""
     var myAccountNum: Int64 = 0
+    var myServiceID: Int = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
         becomeFirstResponder()
         createDatePicker()
@@ -35,6 +37,8 @@ class AddEntryViewController: UIViewController, UITableViewDataSource, UITableVi
         
         createServiceTable()
        
+        loadServiceDetails()
+
         self.serviceTableView.isHidden = true               // hides Service Type Table view onLoad
         self.hideKeyboardWhenTappedAround()                 // hides keyboard when click away
         self.tabBar.delegate = self as UITabBarDelegate
@@ -89,7 +93,7 @@ class AddEntryViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBAction func saveBTN(_ sender: Any) {
         
-        let completed:String = "completed"
+        let completed:String = "Completed"
         
         let accountNumberDB = myAccountNum
         
@@ -129,21 +133,9 @@ class AddEntryViewController: UIViewController, UITableViewDataSource, UITableVi
     
 
     @IBAction func clearEntry(_ sender: Any) {
-        print("clear")
+        loadTextFields()
     }
-    
-    
 
-    @IBAction func deleteEntry(_ sender: Any) {
-        
-        do {
-            print("Dropped Services Table")
-            try database.run(servicesTable.drop())
-        } catch {
-            print(error)
-        }
-        
-    }
     
     
 
@@ -172,6 +164,35 @@ class AddEntryViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
 
+    
+    func loadServiceDetails() {
+        
+        let serviceidDB = myServiceID
+        let serviceTypeDB =        try! database.scalar("SELECT typeName FROM Services WHERE serviceID = '\(serviceidDB)'") as? String
+        let otherTextDB =        try! database.scalar("SELECT otherName FROM Services WHERE serviceID = '\(serviceidDB)'") as? String
+        let datePickerDB =       try! database.scalar("SELECT date FROM Services WHERE serviceID = '\(serviceidDB)'") as? String
+        let mileageDB =         try! database.scalar("SELECT mileage FROM Services WHERE serviceID = '\(serviceidDB)'") as? String
+        let companyDB =     try! database.scalar("SELECT company FROM Services WHERE serviceID = '\(serviceidDB)'") as? String
+        let costDB =    try! database.scalar("SELECT cost FROM Services WHERE serviceID = '\(serviceidDB)'") as? String
+        
+        serviceTypeBTN.setTitle(serviceTypeDB, for: .normal)
+        otherTextField.text = otherTextDB
+        datePicker.text = datePickerDB
+        mileageTextField.text = mileageDB
+        companyTextField.text = companyDB
+        costTextField.text = costDB
+    }
+    
+    
+    func loadTextFields() {
+        serviceTypeBTN.setTitle("", for: .normal)
+        otherTextField.text = ""
+        datePicker.text = ""
+        mileageTextField.text = ""
+        companyTextField.text = ""
+        costTextField.text = ""
+        
+    }
     
     
     

@@ -69,6 +69,36 @@ class HomeViewController: UIViewController, UITabBarDelegate {
     }
     
     
+    @IBAction func serviceReportBTN(_ sender: Any) {
+         performSegue(withIdentifier: "serviceReports", sender: nil)
+    }
+    
+    
+    @IBAction func garageBTN(_ sender: Any) {
+         performSegue(withIdentifier: "ShowGarage", sender: nil)
+    }
+    
+
+    @IBAction func addCompletedBTN(_ sender: Any) {
+        performSegue(withIdentifier: "addCompletedEntry", sender: nil)
+    }
+    
+    
+    @IBAction func addFutureBTN(_ sender: Any) {
+         performSegue(withIdentifier: "ShowFuture", sender: nil)
+    }
+
+    
+    
+    @IBAction func spendingBTN(_ sender: Any) {
+         performSegue(withIdentifier: "ShowSpend", sender: nil)
+    }
+    
+    
+    @IBAction func viewProfileBTN(_ sender: Any) {
+         performSegue(withIdentifier: "ShowProfile", sender: nil)
+    }
+    
     
     @IBOutlet var tabBar: UITabBar!
     

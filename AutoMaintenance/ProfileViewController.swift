@@ -119,7 +119,28 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
     
     
     @IBAction func updateBTN(_ sender: Any) {
+        let usernames = myUsername
         
+        let nameDB =    try! database.scalar("SELECT name FROM Users WHERE username = '\(usernames)'") as? String
+        let usernameDB = usernames
+        let emailDB =    try! database.scalar("SELECT email FROM Users WHERE username = '\(usernames)'") as? String
+        let birthdayDB =    try! database.scalar("SELECT birthday FROM Users WHERE username = '\(usernames)'") as? String
+        
+        do {
+            let alice = usersTable.filter(username == usernameDB)
+            
+            try self.database.run(alice.update(name <- name.replace(nameDB!, with: (fullnameTextField.text)!)))
+            try self.database.run(alice.update(username <- username.replace(usernameDB, with: (usernameTextField.text)!)))
+            try self.database.run(alice.update(email <- email.replace(emailDB!, with: (emailTextField.text)!)))
+            try self.database.run(alice.update(birthday <- birthday.replace(birthdayDB!, with: (birthdayTextField.text)!)))
+            
+        } catch {
+            print(error)
+        }
+        
+        let alert = UIAlertController(title: "Alert", message: "Profile information has been updated", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
         
     }
     
@@ -128,9 +149,11 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
         // Allows users to edit Fields
     @IBAction func editBTN(_ sender: Any) {
         fullnameTextField.isUserInteractionEnabled = true
+        usernameTextField.isUserInteractionEnabled = true
+        emailTextField.isUserInteractionEnabled = true
         birthdayTextField.isUserInteractionEnabled = true
         
-        let alert = UIAlertController(title: "Alert", message: "User Can Now Edit Name & Birthday", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Alert", message: "User Can Now Edit Name, Username, Email & Birthday", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

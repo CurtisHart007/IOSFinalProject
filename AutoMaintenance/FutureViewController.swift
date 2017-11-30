@@ -89,7 +89,7 @@ class FutureViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func saveBTN(_ sender: Any) {
         
-        let open:String = "open"
+        let open:String = "Open"
         
         let accountNumberDB = myAccountNum
         
@@ -122,6 +122,13 @@ class FutureViewController: UIViewController, UITableViewDataSource, UITableView
                     print("serviceID: \(service[self.serviceID]), accountID: \(service[self.accountID]), typeName: \(service[self.typeName]), otherName: \(String(describing: service[self.otherName])), date: \(service[self.date]), mileage: \(service[self.mileage]), company: \(service[self.company]), cost: \(service[self.cost]), status: \(service[self.status])")
                 }
                 
+                let alert = UIAlertController(title: "Alert", message: "Services has been Added", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                loadTextFields()
+                
+                
             } catch {
                 print(error)
             }
@@ -134,21 +141,22 @@ class FutureViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func clearEntry(_ sender: Any) {
         
-        print("clear")
+        loadTextFields()
         
     }
     
     
-    @IBAction func deleteEntry(_ sender: Any) {
-        
-        do {
-            print("Dropped Services Table")
-            try database.run(servicesTable.drop())
-        } catch {
-            print(error)
-        }
+    
+    func loadTextFields() {
+       serviceTypeBTN.setTitle("", for: .normal)
+       otherTextField.text = ""
+       datePicker.text = ""
+       mileageTextField.text = ""
+       companyTextField.text = ""
+       costTextField.text = ""
         
     }
+    
     
     
     

@@ -38,9 +38,9 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginBtn(_ sender: Any) {
-        // used to automatic login
-        usernameTxtField.text = "test"
-        passwordTxtField.text = "test "
+//        // used to automatic login
+//        usernameTxtField.text = "test"
+//        passwordTxtField.text = "test "
         
         let username = usernameTxtField.text!
         let usernameDB =    try! database.scalar("SELECT username FROM Users WHERE username = '\(username)'") as? String

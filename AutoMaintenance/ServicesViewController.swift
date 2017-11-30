@@ -14,10 +14,13 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
     
     var myAccountNum: Int64 = 0
     var myServicesCount: Int64 = 0
+    var myServiceID: Int = 0
     
     var dateArray = [String]()
     var serviceArray = [String]()
     var costArray = [String]()
+    var serviceIDArray = [Int]()
+    var statusArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +40,7 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
         
         createServiceTable()
         
-        self.servicesTableView.rowHeight = 100.0
+        self.servicesTableView.rowHeight = 150.0
         self.tabBar.delegate = self as UITabBarDelegate
     }
     
@@ -47,6 +50,7 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
             myAccountNum = y
             loadData()
         }
+
         
         servicesTableView.reloadData()
     }
@@ -113,16 +117,18 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
         myServicesCount = serviceCount!
         
         do {
-           
-            
-//            let services = try self.database.prepare(self.servicesTable)
-            let services = try self.database.prepare("SELECT date, typeName, cost FROM Services WHERE accountID = '\(tempAcccountNum)'")
+
+
+            let services = try self.database.prepare(self.servicesTable)
+//            let services = try self.database.prepare("SELECT date, typeName, cost FROM Services WHERE accountID = '\(tempAcccountNum)'")
             for service in services {
                 var x: Int = 0
-                
+
                 dateArray.insert(service[self.date], at: x)
                 serviceArray.insert(service[self.typeName], at: x)
                 costArray.insert(service[self.cost], at: x)
+                serviceIDArray.insert(service[self.serviceID], at: x)
+                statusArray.insert(service[self.status], at: x)
                 
                 x = x + 1
             }
@@ -156,12 +162,23 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
         cell.dateValue.text = dateArray[indexPath.row]
         cell.serviceValue.text = serviceArray[indexPath.row]
         cell.costValue.text = costArray[indexPath.row]
-        
+        cell.serviceIDValue.text = "\(serviceIDArray[indexPath.row])"
+        cell.statusValue.text = statusArray[indexPath.row]
+
         return (cell)
     }
     
-            // TableView DidSelectRowAt for Services
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        let indexPath = self.servicesTableView.indexPathForSelectedRow
+        
+        guard let selectedRow = indexPath?.row else {return}
+        
+        let serviceID = serviceIDArray[selectedRow]
+        
+        let destinationVC = segue.destination as? AddEntryViewController
+        
+        destinationVC?.myServiceID = serviceID
         
     }
     

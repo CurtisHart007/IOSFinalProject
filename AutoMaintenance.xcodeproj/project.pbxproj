@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4700087B1FC09BD400555252 /* AddEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4700087A1FC09BD400555252 /* AddEntryViewController.swift */; };
-		4702F74A1FCD2E9600B1D252 /* XML_Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4702F7491FCD2E9600B1D252 /* XML_Parser.swift */; };
-		470626E81FCA07410017AFBE /* SpendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470626E71FCA07410017AFBE /* SpendingViewController.swift */; };
 		4748770C1FAFA3C0002DF6CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4748770B1FAFA3C0002DF6CF /* AppDelegate.swift */; };
 		474877111FAFA3C0002DF6CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4748770F1FAFA3C0002DF6CF /* Main.storyboard */; };
 		474877141FAFA3C0002DF6CF /* AutoMaintenance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 474877121FAFA3C0002DF6CF /* AutoMaintenance.xcdatamodeld */; };
@@ -24,9 +22,9 @@
 		477380541FBFFAE300B33C4E /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 477380531FBFFAE300B33C4E /* Media.xcassets */; };
 		477380581FC008A600B33C4E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477380571FC008A600B33C4E /* ProfileViewController.swift */; };
 		4773805A1FC009A100B33C4E /* GarageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477380591FC009A100B33C4E /* GarageViewController.swift */; };
+		4778A2E61FCFCF16009DF1B4 /* JSONParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4778A2E51FCFCF16009DF1B4 /* JSONParseViewController.swift */; };
 		47C4B73D1FCA1D4F00DD0D67 /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4B73C1FCA1D4F00DD0D67 /* ServicesViewController.swift */; };
 		47C4B73F1FCA228A00DD0D67 /* ServicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4B73E1FCA228A00DD0D67 /* ServicesTableViewCell.swift */; };
-		47C4B7591FCA4FDC00DD0D67 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C4B74B1FCA4FAA00DD0D67 /* SQLite.framework */; };
 		47C4B75A1FCA4FEC00DD0D67 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C4B74B1FCA4FAA00DD0D67 /* SQLite.framework */; };
 		47C4B75B1FCA4FEC00DD0D67 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47C4B74B1FCA4FAA00DD0D67 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		47DCC1981FB3B9DF00049B09 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DCC1971FB3B9DF00049B09 /* SWRevealViewController.m */; };
@@ -122,8 +120,6 @@
 
 /* Begin PBXFileReference section */
 		4700087A1FC09BD400555252 /* AddEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryViewController.swift; sourceTree = "<group>"; };
-		4702F7491FCD2E9600B1D252 /* XML_Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XML_Parser.swift; sourceTree = "<group>"; };
-		470626E71FCA07410017AFBE /* SpendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingViewController.swift; sourceTree = "<group>"; };
 		474877081FAFA3C0002DF6CF /* AutoMaintenance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoMaintenance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4748770B1FAFA3C0002DF6CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		474877101FAFA3C0002DF6CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,6 +140,7 @@
 		477380531FBFFAE300B33C4E /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		477380571FC008A600B33C4E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		477380591FC009A100B33C4E /* GarageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewController.swift; sourceTree = "<group>"; };
+		4778A2E51FCFCF16009DF1B4 /* JSONParseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParseViewController.swift; sourceTree = "<group>"; };
 		47C4B73C1FCA1D4F00DD0D67 /* ServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
 		47C4B73E1FCA228A00DD0D67 /* ServicesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesTableViewCell.swift; sourceTree = "<group>"; };
 		47C4B7401FCA4FA900DD0D67 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../../../Desktop/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
@@ -159,7 +156,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				47C4B75A1FCA4FEC00DD0D67 /* SQLite.framework in Frameworks */,
-				47C4B7591FCA4FDC00DD0D67 /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,10 +207,9 @@
 				4748770F1FAFA3C0002DF6CF /* Main.storyboard */,
 				47C4B73E1FCA228A00DD0D67 /* ServicesTableViewCell.swift */,
 				477380531FBFFAE300B33C4E /* Media.xcassets */,
-				4702F7491FCD2E9600B1D252 /* XML_Parser.swift */,
 				4700087A1FC09BD400555252 /* AddEntryViewController.swift */,
-				470626E71FCA07410017AFBE /* SpendingViewController.swift */,
 				477380571FC008A600B33C4E /* ProfileViewController.swift */,
+				4778A2E51FCFCF16009DF1B4 /* JSONParseViewController.swift */,
 				477380591FC009A100B33C4E /* GarageViewController.swift */,
 				47E7EE0A1FCBBE3700D898CF /* FutureViewController.swift */,
 				47C4B73C1FCA1D4F00DD0D67 /* ServicesViewController.swift */,
@@ -466,19 +461,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				47DCC1981FB3B9DF00049B09 /* SWRevealViewController.m in Sources */,
+				4778A2E61FCFCF16009DF1B4 /* JSONParseViewController.swift in Sources */,
 				4748773D1FAFA4C9002DF6CF /* LoginViewController.swift in Sources */,
 				477380581FC008A600B33C4E /* ProfileViewController.swift in Sources */,
 				474877141FAFA3C0002DF6CF /* AutoMaintenance.xcdatamodeld in Sources */,
 				4773804E1FBFD88800B33C4E /* sideMenuVC.swift in Sources */,
 				4773804C1FBFD84D00B33C4E /* ContainerVC.swift in Sources */,
 				4748770C1FAFA3C0002DF6CF /* AppDelegate.swift in Sources */,
-				4702F74A1FCD2E9600B1D252 /* XML_Parser.swift in Sources */,
 				47C4B73D1FCA1D4F00DD0D67 /* ServicesViewController.swift in Sources */,
 				4773805A1FC009A100B33C4E /* GarageViewController.swift in Sources */,
 				47C4B73F1FCA228A00DD0D67 /* ServicesTableViewCell.swift in Sources */,
 				4700087B1FC09BD400555252 /* AddEntryViewController.swift in Sources */,
 				4748773F1FAFB439002DF6CF /* AccountSignUpViewController.swift in Sources */,
-				470626E81FCA07410017AFBE /* SpendingViewController.swift in Sources */,
 				477380501FBFDF4700B33C4E /* HomeViewController.swift in Sources */,
 				47E7EE0B1FCBBE3800D898CF /* FutureViewController.swift in Sources */,
 			);

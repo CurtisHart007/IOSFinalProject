@@ -147,6 +147,7 @@ class FutureViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     
+    
     func loadTextFields() {
        serviceTypeBTN.setTitle("", for: .normal)
        otherTextField.text = ""

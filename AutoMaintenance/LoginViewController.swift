@@ -37,7 +37,6 @@ class LoginViewController: UIViewController {
     
     
     
-    
     @IBAction func loginBtn(_ sender: Any) {
 //        // used to automatic login
 //        usernameTxtField.text = "test"

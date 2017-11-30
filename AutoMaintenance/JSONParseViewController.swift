@@ -27,6 +27,7 @@ struct vehicleTypes: Decodable {
     let vehiclename: String
 }
     
+    
 //    init(json: [String: Any]) {
 //        id = json["id"] as? Int ?? -1
 //        name = json["name"] as? String ?? ""

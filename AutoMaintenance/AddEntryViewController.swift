@@ -138,7 +138,6 @@ class AddEntryViewController: UIViewController, UITableViewDataSource, UITableVi
 
     
     
-
     
     func createServiceTable() {
         print("Create Services Table")

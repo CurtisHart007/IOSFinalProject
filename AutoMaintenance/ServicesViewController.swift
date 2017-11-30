@@ -45,6 +45,7 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
+    
     override func viewDidAppear(_ animated: Bool) {
         if let y = UserDefaults.standard.object(forKey: "myAccountNum") as? Int64 {
             myAccountNum = y

@@ -77,7 +77,7 @@ class AccountSignUpViewController: UIViewController {
         
         // get accountID number to add below
         let accountNum =    try! database.scalar("SELECT count(*) FROM Users") as! Int64
-        UserDefaults.standard.set(accountNum+1, forKey: "myAccountNum")
+//        UserDefaults.standard.set(accountNum+1, forKey: "myAccountNum")
         
         let insertUser = self.usersTable.insert(
             self.accountID <- accountNum + 1,

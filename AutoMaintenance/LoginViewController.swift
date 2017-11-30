@@ -45,7 +45,11 @@ class LoginViewController: UIViewController {
         let username = usernameTxtField.text!
         let usernameDB =    try! database.scalar("SELECT username FROM Users WHERE username = '\(username)'") as? String
         let passwordDB =    try! database.scalar("SELECT password FROM Users WHERE username = '\(username)'") as? String
+        let accountIDDB =    try! database.scalar("SELECT accountID FROM Users WHERE username = '\(username)'") as? Int64
         
+        print(accountIDDB)
+        
+        UserDefaults.standard.set(accountIDDB, forKey: "myAccountNum")
         /* username in DB */    print(usernameDB)
         /* password in DB */    print(passwordDB)
         

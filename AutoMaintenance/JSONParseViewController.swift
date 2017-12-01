@@ -8,80 +8,118 @@
 
 import UIKit
 
-struct vehicleMake: Decodable {
-    let count: Int
-    let message: String
-    let serachCriteria: String
-    let result: [Results]
-}
 
-struct Results: Decodable {
-    let county: String
-    let commonName: String
-    let id: Int
-    let name: String
-    let vehicleType: [vehicleTypes]
-    
-struct vehicleTypes: Decodable {
-    let primary: Bool
-    let vehiclename: String
-}
-    
-    
-//    init(json: [String: Any]) {
-//        id = json["id"] as? Int ?? -1
-//        name = json["name"] as? String ?? ""
-//        link = json["link"] as? String ?? ""
-//        imageURL = json["imageURL"] as? String ?? ""
-//    }
-}
+//    // year JSON
+//struct vehicleYear: Decodable {
+//    let errors: Int
+//    let result: [Years]
+//}
+//
+//struct Years: Decodable {
+//    let year: String
+//}
+//
+//// **********************
+//
+//    // make JSON
+//struct vehicleMake: Decodable {
+//    let errors: Int
+//    let result: [Make]
+//}
+//
+//struct Make: Decodable {
+//    let make_id: String
+//    let make: String
+//}
+//
+//// **********************
+//
+//// model JSON
+//struct vehicleModel: Decodable {
+//    let errors: Int
+//    let result: [Models]
+//}
+//
+//struct Models: Decodable {
+//    let model_id: String
+//    let model: String
+//}
 
 
 class JSONParseViewController: UIViewController {
 
+//    var makes = [Make]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
-        let jsonUrlString = "https://vpic.nhtsa.dot.gov/api/vehicles/getallmanufacturers?format=json"
-        
-        guard let url = URL(string: jsonUrlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response , err) in
-            // perhaps check err
-            // check response status 200 OK
-            
-            guard let data = data else { return }
-            
-//            let dataAsString = String(data: data, encoding: .utf8)
-//            print(dataAsString)
-            
-            do {
-                
-                let vehicleManufacturers = try JSONDecoder().decode(vehicleMake.self, from: data)
-                print(vehicleManufacturers.count,
-                      vehicleManufacturers.message,
-                      vehicleManufacturers.serachCriteria)
-                
-                    // single layer object
-//                let courses = try JSONDecoder().decode([Course].self, from: data)
-//                print(courses)
-                
-//                //Swift 2/3/ObjC
-//                guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
-//                print(json)
-//
-//                let course = Course(json: json)
-//                print(course.name)
-                
-            } catch let jsonErr {
-                print("Error serializing json: ", jsonErr)
-            }
-            
-        }.resume()
-        
-        
-        
-        
+//        yearsJSON()
+//        makesJSON()
+//        modelsJSON()
+    
     }
+    
+//
+//     func yearsJSON() {
+//
+//        let urlYear = "https://databases.one/api/?format=json&select=year&api_key=2cea30c809ed63591521b5bc5"
+//        guard let url = URL(string: urlYear) else { return }
+//
+//        URLSession.shared.dataTask(with: url) { (data, response , err) in
+//
+//            guard let data = data else { return }
+//
+//            do {
+//                let vehicleallYears = try JSONDecoder().decode(vehicleYear.self, from: data)
+//                print(vehicleallYears.result)
+//
+//            } catch let jsonErr {
+//                print("Error serializing json: ", jsonErr)
+//            }
+//
+//            }.resume()
+//    }
+//
+//
+//    func makesJSON() {
+//
+//        let urlMake = "https://databases.one/api/?format=json&select=make&api_key=2cea30c809ed63591521b5bc5"
+//        guard let url = URL(string: urlMake) else { return }
+//
+//        URLSession.shared.dataTask(with: url) { (data, response , err) in
+//
+//            guard let data = data else { return }
+//
+//            do {
+//                let vehicleMakes = try JSONDecoder().decode(vehicleMake.self, from: data)
+//                print(vehicleMakes.result)
+//
+//            } catch let jsonErr {
+//                print("Error serializing json: ", jsonErr)
+//            }
+//
+//            }.resume()
+//    }
+//
+//    func modelsJSON() {
+//        let urlModel = "https://databases.one/api/?format=json&select=model&api_key=2cea30c809ed63591521b5bc5"
+//        guard let url = URL(string: urlModel) else { return }
+//
+//        URLSession.shared.dataTask(with: url) { (data, response , err) in
+//
+//            guard let data = data else { return }
+//
+//            do {
+//                let vehicleModels = try JSONDecoder().decode(vehicleModel.self, from: data)
+//                print(vehicleModels.result)
+//
+//            } catch let jsonErr {
+//                print("Error serializing json: ", jsonErr)
+//            }
+//
+//            }.resume()
+//
+//        
+//    }
+//
 }

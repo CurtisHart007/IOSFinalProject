@@ -10,6 +10,45 @@ import UIKit
 import SQLite
 
 class GarageViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITabBarDelegate {
+
+// year JSON
+struct vehicleYear: Decodable {
+    let errors: Int
+    let result: [Years]
+}
+
+struct Years: Decodable {
+    let year: String
+}
+
+// **********************
+
+// make JSON
+struct vehicleMake: Decodable {
+    let errors: Int
+    let result: [Make]
+}
+
+struct Make: Decodable {
+    let make_id: String
+    let make: String
+}
+
+// **********************
+
+// model JSON
+struct vehicleModel: Decodable {
+    let errors: Int
+    let result: [Models]
+}
+
+struct Models: Decodable {
+    let model_id: String
+    let model: String
+}
+
+
+
     
     var myAccountNum: Int64 = 0
     
@@ -17,7 +56,9 @@ class GarageViewController: UIViewController,  UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        yearsJSON()
+//        makesJSON()
+//        modelsJSON()
         
 
         // Hide Keyboard when click away
@@ -78,7 +119,8 @@ class GarageViewController: UIViewController,  UITableViewDataSource, UITableVie
         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
     
-    let Yeararray = ["2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970"]
+//    let Yeararray = ["2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970"]
+    let Yeararray = [String]()
     let Makearray = ["Acura", "Mits", "Ford", "Honda", "Toyota"]
     let Modelarray = ["LX", "Lancer", "Evo", "F150", "F250"]
     
@@ -391,5 +433,83 @@ class GarageViewController: UIViewController,  UITableViewDataSource, UITableVie
 //    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 //        picker.dismiss(animated: true, completion: nil)
 //    }
+    
+    
+    func yearsJSON() {
+        
+        let urlYear = "https://databases.one/api/?format=json&select=year&api_key=2cea30c809ed63591521b5bc5"
+        guard let url = URL(string: urlYear) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response , err) in
+            
+            guard let data = data else { return }
+            
+            do {
+                let vehicleallYears = try JSONDecoder().decode(vehicleYear.self, from: data)
+                print(vehicleallYears.result.last!)
+                
+                
+//                let years = try JSONDecoder().decode([Years].self, from: data)
+//                print(years.count)
+//
+//                for jsonData in years {
+//                    print(jsonData.year)
+//                };﻿
+                
+//                let vehicleallYears = try JSONDecoder().decode([Years].self, from: data)
+//                print(vehicleallYears)
+//
+//                self.Yeararray = vehicleallYears
+                
+            } catch let jsonErr {
+                print("Error serializing json: ", jsonErr)
+            }
+            
+            
+            
+            }.resume()
+    }
+    
+    
+    func makesJSON() {
+        
+        let urlMake = "https://databases.one/api/?format=json&select=make&api_key=2cea30c809ed63591521b5bc5"
+        guard let url = URL(string: urlMake) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response , err) in
+            
+            guard let data = data else { return }
+            
+            do {
+                let vehicleMakes = try JSONDecoder().decode(vehicleMake.self, from: data)
+                print(vehicleMakes.result)
+                
+            } catch let jsonErr {
+                print("Error serializing json: ", jsonErr)
+            }
+            
+            }.resume()
+    }
+    
+    func modelsJSON() {
+        let urlModel = "https://databases.one/api/?format=json&select=model&api_key=2cea30c809ed63591521b5bc5"
+        guard let url = URL(string: urlModel) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response , err) in
+            
+            guard let data = data else { return }
+            
+            do {
+                let vehicleModels = try JSONDecoder().decode(vehicleModel.self, from: data)
+                print(vehicleModels.result)
+                
+            } catch let jsonErr {
+                print("Error serializing json: ", jsonErr)
+            }
+            
+            }.resume()
+        
+        
+    }
     
 }

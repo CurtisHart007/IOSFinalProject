@@ -10,6 +10,9 @@ import UIKit
 import SQLite
 
 
+
+
+
 class ServicesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
     var myAccountNum: Int64 = 0
@@ -120,8 +123,8 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
         do {
 
 
-//            let services = try self.database.prepare(self.servicesTable)
-            let services = try self.database.prepare("SELECT date, typeName, cost FROM Services WHERE accountID = '\(tempAcccountNum)'")
+            let services = try self.database.prepare(self.servicesTable)
+//            let services = try self.database.prepare("SELECT date, typeName, cost FROM Services WHERE accountID = '\(tempAcccountNum)'")
             for service in services {
                 var x: Int = 0
 

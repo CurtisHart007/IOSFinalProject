@@ -199,7 +199,7 @@
                                     <action selector="loginBtn:" destination="Adi-HJ-W1E" eventType="touchUpInside" id="aQP-eO-6lT"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mW0-hb-NBg" userLabel="usernameTxtField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Birthday" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mW0-hb-NBg" userLabel="usernameTxtField">
                                 <rect key="frame" x="125" y="252" width="225" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -755,21 +755,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWK-d4-Hbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="796" y="722.78860569715152"/>
-        </scene>
-        <!--Parse View Controller-->
-        <scene sceneID="jgW-3M-lm6">
-            <objects>
-                <viewController id="Tyu-r7-x9e" customClass="JSONParseViewController" customModule="AutoMaintenance" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hTz-Ke-Xmd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="lPN-sL-egz"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rf3-BO-EDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="833" y="1644"/>
         </scene>
         <!--Garage-->
         <scene sceneID="PvW-Wc-2gt">

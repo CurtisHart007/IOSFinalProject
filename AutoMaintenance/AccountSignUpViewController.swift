@@ -60,12 +60,12 @@ class AccountSignUpViewController: UIViewController {
     
     @IBAction func cancelBTN(_ sender: Any) {
         
-        do {
-            print("Dropped Users Table")
-            try database.run(usersTable.drop())
-        } catch {
-            print(error)
-        }
+//        do {
+//            print("Dropped Users Table")
+//            try database.run(usersTable.drop())
+//        } catch {
+//            print(error)
+//        }
         
         let logincancel = self.storyboard?.instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
         self.navigationController?.pushViewController(logincancel, animated: true)

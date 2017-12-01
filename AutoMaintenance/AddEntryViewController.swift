@@ -127,6 +127,10 @@ class AddEntryViewController: UIViewController, UITableViewDataSource, UITableVi
                 } catch {
                     print(error)
                 }
+            
+            let alert = UIAlertController(title: "Alert", message: "Entry has been Saved", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

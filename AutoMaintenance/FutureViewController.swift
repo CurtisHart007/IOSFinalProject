@@ -122,7 +122,7 @@ class FutureViewController: UIViewController, UITableViewDataSource, UITableView
                     print("serviceID: \(service[self.serviceID]), accountID: \(service[self.accountID]), typeName: \(service[self.typeName]), otherName: \(String(describing: service[self.otherName])), date: \(service[self.date]), mileage: \(service[self.mileage]), company: \(service[self.company]), cost: \(service[self.cost]), status: \(service[self.status])")
                 }
                 
-                let alert = UIAlertController(title: "Alert", message: "Services has been Added", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Alert", message: "Future Entry has been saved", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 
@@ -132,6 +132,10 @@ class FutureViewController: UIViewController, UITableViewDataSource, UITableView
             } catch {
                 print(error)
             }
+            
+            let alert = UIAlertController(title: "Alert", message: "Entry has been Saved", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             
             
         }

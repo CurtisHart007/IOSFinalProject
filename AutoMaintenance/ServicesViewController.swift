@@ -43,6 +43,12 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
         
         createServiceTable()
         
+
+        servicesTableView.dataSource = self
+        servicesTableView.delegate = self
+        
+        servicesTableView.reloadData()
+        
         self.servicesTableView.rowHeight = 150.0
         self.tabBar.delegate = self as UITabBarDelegate
     }
@@ -54,9 +60,8 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
             myAccountNum = y
             loadData()
         }
-
         
-        servicesTableView.reloadData()
+//        servicesTableView.reloadData()
     }
     
     
@@ -115,9 +120,8 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
     func loadData() {
         
         let tempAcccountNum = myAccountNum
-        let tempStatus:String = "completed"
         
-        let serviceCount =  try! database.scalar("SELECT count(*) FROM Services WHERE accountID = '\(tempAcccountNum)' AND status = '\(tempStatus)'") as? Int64
+        let serviceCount =  try! database.scalar("SELECT count(*) FROM Services WHERE accountID = '\(tempAcccountNum)'") as? Int64
         myServicesCount = serviceCount!
         
         do {
@@ -139,6 +143,7 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
         } catch {
             print(error)
         }
+        servicesTableView.reloadData()
 
     }
     
@@ -156,7 +161,7 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
     
         // TableView numberOfRowsInSection for Services
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int(myServicesCount)
+        return Int(Int64(myServicesCount))
     }
     
         // TableView cellForRowAt for Services
@@ -171,6 +176,7 @@ class ServicesViewController: UIViewController, UITableViewDelegate, UITableView
 
         return (cell)
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
